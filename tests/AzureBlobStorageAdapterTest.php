@@ -10,7 +10,10 @@ use League\Flysystem\FilesystemAdapter;
 use League\Flysystem\UnableToSetVisibility;
 use League\Flysystem\Visibility;
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Common\Internal\StorageServiceSettings;
+use Throwable;
+
 use function getenv;
 
 /**
@@ -29,6 +32,15 @@ class AzureBlobStorageAdapterTest extends TestCase
         }
 
         $client = BlobRestProxy::createBlobService($dsn);
+        try {
+            $client->createContainer(static::CONTAINER_NAME);
+        } catch (ServiceException $e) {
+            // Don't report container already exists
+            if ($e->getCode() !== 409) {
+                throw $e;
+            }
+        }
+
         $serviceSettings = StorageServiceSettings::createFromConnectionString($dsn);
 
         return new AzureBlobStorageAdapter(
