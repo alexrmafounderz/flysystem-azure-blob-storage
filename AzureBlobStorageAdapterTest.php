@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace League\Flysystem\AzureBlobStorage;
+namespace Cws\Flysystem\AzureBlobStorage;
 
 use League\Flysystem\AdapterTestUtilities\FilesystemAdapterTestCase as TestCase;
 use League\Flysystem\Config;

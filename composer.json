@@ -1,8 +1,9 @@
 {
-    "name": "league/flysystem-azure-blob-storage",
+    "name": "cwssrl/flysystem-azure-blob-storage",
+    "type": "library",
     "autoload": {
         "psr-4": {
-            "League\\Flysystem\\AzureBlobStorage\\": ""
+            "Cws\\Flysystem\\AzureBlobStorage\\": ""
         }
     },
     "require": {
@@ -13,8 +14,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Frank de Jonge",
-            "email": "info@frankdejonge.nl"
+            "name": "Nereo Berardozzi",
+            "email": "chack1172@gmail.com"
         }
     ]
 }
