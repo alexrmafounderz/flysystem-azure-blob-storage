@@ -13,6 +13,7 @@ use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
+use MicrosoftAzure\Storage\Common\Internal\Resources;
 use MicrosoftAzure\Storage\Common\Internal\StorageServiceSettings;
 use Throwable;
 
@@ -25,12 +26,17 @@ class AzureBlobStorageAdapterTest extends TestCase
 {
     const CONTAINER_NAME = 'flysystem';
 
+    private static $isAzurite = false;
+
     protected static function createFilesystemAdapter(): FilesystemAdapter
     {
         $dsn = getenv('FLYSYSTEM_AZURE_DSN');
 
         if (empty($dsn)) {
-            self::markTestSkipped('FLYSYSTEM_AZURE_DSN is not provided.');
+            $dsn = Resources::DEV_STORE_CONNECTION_STRING;
+            static::$isAzurite = true;
+        } elseif (preg_match('/BlobEndpoint=(.*?);/m', $dsn, $matches)) {
+            static::$isAzurite = str_contains($dsn, '127.0.0.1');
         }
 
         $client = BlobRestProxy::createBlobService($dsn);
@@ -224,5 +230,18 @@ class AzureBlobStorageAdapterTest extends TestCase
     public function creating_a_directory(): void
     {
         $this->markTestSkipped('This adapter does not support creating directories');
+    }
+
+    /**
+     * @test
+     * @override
+     */
+    public function listing_contents_shallow(): void
+    {
+        if (static::$isAzurite) {
+            // Not working on 2023-12-06
+            $this->markTestSkipped('List contents of blobs with $deep = false is not working on azurite.');
+        }
+        parent::listing_contents_shallow();
     }
 }
