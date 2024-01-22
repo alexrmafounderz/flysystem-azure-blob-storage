@@ -9,12 +9,12 @@ use League\Flysystem\Config;
 use League\Flysystem\FilesystemAdapter;
 use League\Flysystem\UnableToSetVisibility;
 use League\Flysystem\Visibility;
-use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
-use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
-use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\StorageServiceSettings;
+use AzureOSS\Storage\Blob\BlobRestProxy;
+use AzureOSS\Storage\Blob\Models\CreateContainerOptions;
+use AzureOSS\Storage\Blob\Models\PublicAccessType;
+use AzureOSS\Storage\Common\Exceptions\ServiceException;
+use AzureOSS\Storage\Common\Internal\Resources;
+use AzureOSS\Storage\Common\Internal\StorageServiceSettings;
 use Throwable;
 
 use function getenv;
