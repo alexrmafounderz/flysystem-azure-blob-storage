@@ -15,7 +15,7 @@
     "require": {
         "php": "^8.0.2",
         "league/flysystem": "^3.10.0",
-        "alexrmafounderz/azure-storage": "dev-master@dev"
+        "alexrmafounderz/azure-storage": "dev-main@dev"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
