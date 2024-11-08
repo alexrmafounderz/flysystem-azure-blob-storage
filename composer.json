@@ -17,6 +17,8 @@
         "league/flysystem": "^3.10.0",
         "alexrmafounderz/azure-storage": "dev-master@dev"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "license": "MIT",
     "authors": [
         {
