@@ -1,15 +1,21 @@
 {
-    "name": "cwssrl/flysystem-azure-blob-storage",
+    "name": "alexrmafounderz/flysystem-azure-blob-storage",
     "type": "library",
     "autoload": {
         "psr-4": {
             "Cws\\Flysystem\\AzureBlobStorage\\": ""
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/alexrmafounderz/azure-storage-php"
+        }
+    ],
     "require": {
         "php": "^8.0.2",
         "league/flysystem": "^3.10.0",
-        "cwssrl/azure-storage-php": "^1.6"
+        "alexrmafounderz/azure-oss/storage": "dev-main"
     },
     "license": "MIT",
     "authors": [
