@@ -23,7 +23,7 @@
             "name": "Nereo Berardozzi",
             "email": "chack1172@gmail.com"
         }
-    },
+    ],
     "require-dev": {
         "league/flysystem-adapter-test-utilities": "^3.21",
         "phpunit/phpunit": "^10.5"
