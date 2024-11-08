@@ -15,7 +15,7 @@
     "require": {
         "php": "^8.0.2",
         "league/flysystem": "^3.10.0",
-        "alexrmafounderz/azure-storage-php": "dev-main"
+        "alexrmafounderz/azure-storage": "dev-main"
     },
     "license": "MIT",
     "authors": [
